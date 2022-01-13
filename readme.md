@@ -1,19 +1,68 @@
 # Create token gated site from Notion
-
-> Create a website from a Notion page and only allowing access to community members based on wallet content.
-
 [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+> Create a website from a Notion page and only allowing access to community members based on wallet content.
 
 ## Intro
 
 The explanation below should be so simple that even non engineers can deploy a token gated website from a Notion page.
 
-This starter kit has been forked and adapted from [transitive-bullshit / nextjs-notion-starter-kit](https://github.com/transitive-bullshit/nextjs-notion-starter-kit) to only
-allow access to users that have required content in their wallet to be a member of the community.
+This starter kit has been forked and adapted from [transitive-bullshit / nextjs-notion-starter-kit](https://github.com/transitive-bullshit/nextjs-notion-starter-kit), which works
+off of [NotionX](https://github.com/NotionX/react-notion-x) _(I have coppied code from another project I had this in, hence no fork link)_.
+
+Updates have been made to only allow access to users that have the required content in their wallet to be a member of the community.
+
+
+## How to release
+
+### 1. Create the community on guild.xyz
+
+_For the moment we're going to piggy back off the great work done by [agora.space](https://agora.space)_ to create a community.
+
+1. Go to [alpha.guild.xyz](https://alpha.guild.xyz/)
+2. Connect your wallet
+3. Set up a guild to create your community ![img.png](./readme-pics/img.png)
+4. Connect the guild to a discord channel (the discord channel is not required for anything for us, it's just a necessary step for their UI)
+5. Set the requirements the allows someone to access the community ![img_1.png](./readme-pics/img_1.png)
+6. Click SUMMON!
+7. Keep the tab open or copy and keep the end of the url which contains the guild e.g.
+   `https://alpha.guild.xyz/notiontokengate` copy `notiontokengate`
+
+### 2. Get the notion page ready
+
+1. Go to the notion page you would like to turn into a site
+2. Click `Share` top right
+3. Toggle share to web
+4. Take note of the long code at the end of the page (e.g. if url is `https://yournotionname.notion.site/Page-Name-7cfba5335c5a4da9b6c3ab8b393cefe3` note `7cfba5335c5a4da9b6c3ab8b393cefe3`)
+
+### 3. Fork this repo
+**This should (hopefully) be so easy that even if you don't code you can still set this up**
+
+_If you are technical feel free to use your own method from here using `yarn dev` to run locally_
+
+1. Set up a github account (if you haven't already)
+2. Click `Fork` top right of this project (link [here](https://github.com/ssp6/web3-token-gate-notion-starter-kit) if reading anywhere other than github)
+   1. Note: This will essentially just copy the project to your github account so that no changed effect other people's github
+3. Scroll down and click on the file `site.config.js`
+4. Click the little pen/pencil top right to edit the file ![img_3.png](./readme-pics/img_3.png)
+5. Update the lines that have a `// TODO` next to them
+   1. Line 3 - inside the `''` after `rootNotionPageId: ` paste the notion url code noted above
+   2. Fill in your own basic details as social usernames if you want
+   3. Line 56 - inside the `''` after `guildUrlName: ` paste the guild url from stage 1
+6. When complete at the bottom click `Commit changes` an
+7. Go back to the list that contained the file `site.config.js` and click the `public` folder, then the `manifest.json`
+8. Similar to above, edit the `manifest.json` file and inside the `""` after `"name": ` and `"short_name"` type what ever your site is called
+9. Commit those changes and everything's good to go!
+
+### 4. Set up a vercel account
+
+_vercel is a service that is going to be used to host your site, it's free tier is fairly generous!_
+
+1. Got to [https://vercel.com/signup](https://vercel.com/signup)
+2. Click `Continue with GitHub`
 
 
 
-## Old Docs
+# Original docs
 
 This repo is what I use to power my personal blog / portfolio site [transitivebullsh.it](https://transitivebullsh.it).
 
@@ -43,7 +92,7 @@ The site is then deployed to [Vercel](http://vercel.com).
 
 1. Fork / clone this repo
 2. Change a few values in [site.config.js](./site.config.js)
-3. `npm install`
+3. `yarn`
 4. `npm run dev` to test locally
 5. `npm run deploy` to deploy to vercel 💪
 
