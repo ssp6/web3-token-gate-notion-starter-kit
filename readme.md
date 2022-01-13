@@ -59,6 +59,12 @@ _vercel is a service that is going to be used to host your site, it's free tier 
 
 1. Got to [https://vercel.com/signup](https://vercel.com/signup)
 2. Click `Continue with GitHub`
+3. Once set up get to the [on boarding page](https://vercel.com/new?onboarding=true)
+4. Under the words `Import Git Repository` click the dropdown and `+ Add Github Account` ![img_4.png](./readme-pics/img_4.png)
+5. Once connected find your repository and click `Import`
+6. In the `Configure Project` area expand the `Environment Variables` ![img_5.png](./readme-pics/img_5.png)
+7. As seen above, type in `JWT_SECRET` in the NAME field and a random password in the VALUE field (I just used a randomly generated password, you can always view it later but shouldn't need to remember it)
+8. Remember to hit the `Add` button and the click the big `Deploy` button!
 
 
 
